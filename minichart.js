@@ -22,11 +22,14 @@ function piechart(cvs, data, name=null, vertical=false) {
     ctx.shadowBlur = 10;
     ctx.shadowColor = "black";
     
-    for(i=0;i<data.length;i++) total+=data[i];
-    for(i=0;i<data.length;i++) pct[i]=data[i]/total;
+    for(var i=0;i<data.length;i++) total+=data[i];
+    for(var i=0;i<data.length;i++) {
+        pct[i]=data[i]/total;
+        if (pct[i]<0) pct[i]=0;
+    }
     
     var st=0;
-    for(i=0;i<data.length;i++) {
+    for(var i=0;i<data.length;i++) {
         ang=st+pct[i]*onec;
         ctx.beginPath();
         ctx.moveTo(cx,cy);
@@ -95,11 +98,14 @@ function barchart(cvs, data, name=null, vertical=false, barh=30) {
     ctx.shadowBlur = 10;
     ctx.shadowColor = "black";
     
-    for(i=0;i<data.length;i++) total+=data[i];
-    for(i=0;i<data.length;i++) pct[i]=data[i]/total;
+    for(var i=0;i<data.length;i++) total+=data[i];
+    for(var i=0;i<data.length;i++) {
+        pct[i]=data[i]/total;
+        if (pct[i]<0) pct[i]=0;
+    }
     
     var st=0;
-    for(i=0;i<data.length;i++) {
+    for(var i=0;i<data.length;i++) {
         dis=pct[i]*w;
         ctx.beginPath();
         ctx.rect(st+ofx,ofy,dis,barh)
