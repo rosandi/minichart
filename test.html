@@ -3,11 +3,19 @@
     <script src="minichart.js"></script>   
     </head>
 <body>
-    <canvas id='plot' width='250px' height='300px'>
-    </canvas>
+    <canvas id='plot0' width='300px' height='350px' style="background:yellow"></canvas>
+    <br><br>
+    <canvas id='plot1' width='300px' height='450px' style="background:yellow"></canvas>
+    <br><br>
+    <canvas id='plot2' width='800px' height='100px' style="background:yellow"></canvas>
+    <br><br>
+    <canvas id='plot3' width='800px' height='200px' style="background:yellow"></canvas>
     
     <script>
-        piechart('plot', [3,3,3,1], ['one','two','three','four']);
+        piechart('plot0', [3,3,3,1], ['one','two','three','four']);
+        piechart('plot1', [3,3,3,1], ['one','two','three','four'],true);
+        barchart('plot2', [3,3,3,1], ['one','two','three','four']);
+        barchart('plot3', [3,3,3,1], ['one','two','three','four'],true,60);
     </script>
     
 </body>
