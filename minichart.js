@@ -106,9 +106,10 @@ function barchart(cvs, data, name=null, vertical=false, barh=30) {
         ctx.fillStyle = colors[i];
         ctx.fill();
         
-        ctx.fillStyle = 'yellow';
-        
-        ctx.fillText(((pct[i])*100).toFixed(0)+"%",ofx+st+10,barh);
+        if (pct[i]>0.1) {
+            ctx.fillStyle = 'yellow';
+            ctx.fillText(((pct[i])*100).toFixed(0)+"%",ofx+st+10,barh);
+        }
         st+=pct[i]*w;
     }
     
